@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">i3d</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_home">i3d</string>
+    <color name="white">#FFFFFF</color>
+    <color name="green">#00AF33</color>
+    <color name="grey">#E0DFDB</color>
+    <string name="searchHere">&lt;- Click here or Enter product</string>
+</resources>

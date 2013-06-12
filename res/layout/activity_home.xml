@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <ImageView
+        android:id="@+id/signature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="matrix"
+        android:src="@drawable/signature" />
+
+     <View
+         android:id="@+id/upperGreyLine"
+         android:layout_width="wrap_content"
+         android:layout_height="6dp"
+         android:layout_alignBottom="@+id/signature"
+         android:layout_alignParentLeft="true"
+         android:background="@color/grey" />
+
+     <View
+         android:id="@+id/upperGreenLine"
+         android:layout_width="wrap_content"
+         android:layout_height="6dp"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/signature"
+         android:background="@color/green" />
+
+     <View
+         android:id="@+id/lowerGreyLine"
+         android:layout_width="wrap_content"
+         android:layout_height="6dp"
+         android:layout_alignParentLeft="true"
+         android:layout_above="@+id/ibSearch"
+         android:background="@color/grey" />
+
+     <RelativeLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/lowerGreyLine"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/upperGreenLine" 
+         android:background="@color/white">
+         
+     <ImageSwitcher
+        android:id="@+id/latestUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="matrix"
+        android:src="@drawable/signature" />
+
+     </RelativeLayout>
+
+     <ImageButton
+         android:id="@+id/ibSearch"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentRight="true"
+         android:padding="1dp"
+         android:src="@drawable/search" />
+
+     <ImageButton
+         android:id="@+id/ibScan"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentLeft="true"
+         android:padding="1dp"
+         android:scaleType="center"
+         android:src="@drawable/scan" />
+
+     <EditText
+         android:id="@+id/ieQuery"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_centerHorizontal="true"
+         android:layout_toLeftOf="@+id/ibSearch"
+         android:layout_toRightOf="@+id/ibScan"
+         android:ems="10"
+         android:hint="@string/searchHere" />
+     
+</RelativeLayout>
+
