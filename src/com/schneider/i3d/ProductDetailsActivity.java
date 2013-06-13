@@ -5,9 +5,12 @@ import java.io.IOException;
 import us.monoid.web.JSONResource;
 import us.monoid.web.Resty;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class ProductDetailsActivity extends Activity {
@@ -32,6 +35,13 @@ public class ProductDetailsActivity extends Activity {
 		setContentView(R.layout.product_details);
         Thread thread = new Thread(new Request());
         thread.start();
+        ImageButton button = (ImageButton) findViewById(R.id.iib3d);
+        button.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+			      startActivity( new Intent(ProductDetailsActivity.this,Obj3DView.class)); 
+			}
+		});
 	}
 	class Request implements Runnable{
 		@Override
