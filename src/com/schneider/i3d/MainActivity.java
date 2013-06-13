@@ -20,11 +20,15 @@ import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.ViewSwitcher.ViewFactory;
 
+import com.schneider.scanner.IntentIntegrator;
+import com.schneider.scanner.IntentResult;
+
 public class MainActivity extends Activity implements ViewFactory{
 	protected static final String MESSAGE = "com.schneider.message";
     private ImageSwitcher mSwitcher;
 	private int i=0;
 	protected Intent intent;
+	private String SearchString;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -56,8 +60,7 @@ public class MainActivity extends Activity implements ViewFactory{
          bScan.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
- 				/*intent = new Intent(MainActivity.this,ScanSelectorActivity.class);
- 				startActivity(intent);*/
+				IntentIntegrator.initiateScan(MainActivity.this);
  			}
  		});
          bSearch.setOnClickListener(new OnClickListener() {
@@ -80,13 +83,29 @@ public class MainActivity extends Activity implements ViewFactory{
 	            R.drawable.merten, R.drawable.ovalis, R.drawable.sedna,
 	            R.drawable.ultimate, R.drawable.unica, R.drawable.vivace,
 	            R.drawable.zencelo};
-		private String SearchString;
 
-		public View makeView() {
-			ImageView i = new ImageView(this);
-	        i.setBackgroundColor(0xFFFFFFFF);
-	        i.setScaleType(ImageView.ScaleType.FIT_CENTER);
-	        i.setLayoutParams(new ImageSwitcher.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-	        return i;
-		}
+	public View makeView() {
+		ImageView i = new ImageView(this);
+        i.setBackgroundColor(0xFFFFFFFF);
+        i.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        i.setLayoutParams(new ImageSwitcher.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        return i;
+	}
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	switch(requestCode) {
+	    	case IntentIntegrator.REQUEST_CODE: {
+		    	if (resultCode != RESULT_CANCELED) {
+			    	IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+			    	if (scanResult != null) {
+			    		SearchString = scanResult.getContents();
+			    		Intent intent = new Intent(MainActivity.this,MainActivity.class);
+			    		intent.putExtra("com.schneider.message", SearchString);
+						startActivity(intent);
+
+			    	}
+		    	}
+		    	break;
+	    	}
+    	}
+    }
 }
