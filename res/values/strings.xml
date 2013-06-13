@@ -7,4 +7,14 @@
     <color name="green">#00AF33</color>
     <color name="grey">#E0DFDB</color>
     <string name="searchHere">&lt;- Click here or Enter product</string>
+    <string name="schneider_logo">Schneider Logo</string>
+    <string name="search_button">Search Button</string>
+    <string name="scan_button">Scan Button</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_image">Product Image</string>
+    <string name="product_details">Product Details</string>
+    <string name="product_type">Product Type</string>
+    <string name="segment">Segment</string>
+    <string name="country">Country</string>
+    <string name="button3d">3D Button</string>
 </resources>

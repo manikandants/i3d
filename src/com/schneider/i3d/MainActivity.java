@@ -66,9 +66,9 @@ public class MainActivity extends Activity implements ViewFactory{
          bSearch.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				SearchString = eSearch.getText().toString();
-				/*intent = new Intent(MainActivity.this,OptionsActivity.class);
+				intent = new Intent(MainActivity.this,ProductDetailsActivity.class);
 	    		intent.putExtra(MESSAGE, SearchString);
-				startActivity(intent);*/
+				startActivity(intent);
 			}
 		});
 	}
@@ -98,10 +98,9 @@ public class MainActivity extends Activity implements ViewFactory{
 			    	IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 			    	if (scanResult != null) {
 			    		SearchString = scanResult.getContents();
-			    		Intent intent = new Intent(MainActivity.this,MainActivity.class);
+			    		Intent intent = new Intent(MainActivity.this,ProductDetailsActivity.class);
 			    		intent.putExtra("com.schneider.message", SearchString);
 						startActivity(intent);
-
 			    	}
 		    	}
 		    	break;

@@ -37,30 +37,52 @@ public final class R {
         public static final int signature=0x7f020008;
         public static final int ultimate=0x7f020009;
         public static final int unica=0x7f02000a;
-        public static final int vivace=0x7f02000b;
-        public static final int zencelo=0x7f02000c;
+        public static final int view3d=0x7f02000b;
+        public static final int vivace=0x7f02000c;
+        public static final int zencelo=0x7f02000d;
     }
     public static final class id {
         public static final int ibScan=0x7f090006;
         public static final int ibSearch=0x7f090004;
         public static final int ieQuery=0x7f090007;
+        public static final int iib3d=0x7f090011;
+        public static final int iivProductImage=0x7f090009;
+        public static final int itvCountry=0x7f090010;
+        public static final int itvProductDetails=0x7f090008;
+        public static final int itvProductName=0x7f09000a;
+        public static final int itvProductType=0x7f09000e;
+        public static final int itvSegment=0x7f09000f;
+        public static final int itvlCountry=0x7f09000d;
+        public static final int itvlProductType=0x7f09000b;
+        public static final int itvlSegment=0x7f09000c;
         public static final int latestUpdate=0x7f090005;
         public static final int lowerGreyLine=0x7f090003;
-        public static final int menu_settings=0x7f090008;
+        public static final int menu_settings=0x7f090012;
         public static final int signature=0x7f090000;
         public static final int upperGreenLine=0x7f090002;
         public static final int upperGreyLine=0x7f090001;
     }
     public static final class layout {
         public static final int activity_home=0x7f030000;
+        public static final int product_details=0x7f030001;
     }
     public static final class menu {
         public static final int main=0x7f080000;
     }
     public static final class string {
         public static final int app_name=0x7f050000;
+        public static final int button3d=0x7f05000d;
+        public static final int country=0x7f05000c;
         public static final int menu_settings=0x7f050001;
+        public static final int product_details=0x7f050009;
+        public static final int product_image=0x7f050008;
+        public static final int product_name=0x7f050007;
+        public static final int product_type=0x7f05000a;
+        public static final int scan_button=0x7f050006;
+        public static final int schneider_logo=0x7f050004;
         public static final int searchHere=0x7f050003;
+        public static final int search_button=0x7f050005;
+        public static final int segment=0x7f05000b;
         public static final int title_activity_home=0x7f050002;
     }
     public static final class style {

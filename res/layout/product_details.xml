@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/itvProductDetails"
+        android:text="@string/product_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp" />
+    
+   <ImageView
+        android:id="@+id/iivProductImage"
+        android:contentDescription="@string/product_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/itvProductDetails"
+        android:src="@drawable/ic_launcher" />
+
+   <TextView
+       android:id="@+id/itvProductName"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignTop="@+id/iivProductImage"
+       android:layout_marginLeft="30dp"
+       android:layout_marginTop="34dp"
+       android:layout_toRightOf="@+id/iivProductImage"
+       android:text="@string/product_name"
+       android:textSize="24sp" />
+
+   <TextView
+       android:id="@+id/itvlProductType"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentLeft="true"
+       android:layout_below="@+id/iivProductImage"
+       android:layout_marginLeft="20dp"
+       android:layout_marginTop="20dp"
+       android:text="@string/product_type"
+       android:textSize="18sp" />
+
+   <TextView
+       android:id="@+id/itvlSegment"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/itvlProductType"
+       android:layout_below="@+id/itvlProductType"
+       android:layout_marginTop="20dp"
+       android:text="@string/segment"
+       android:textSize="18sp" />
+
+   <TextView
+       android:id="@+id/itvlCountry"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/itvlSegment"
+       android:layout_below="@+id/itvlSegment"
+       android:layout_marginTop="20dp"
+       android:text="@string/country"
+       android:textSize="18sp" />
+
+   <TextView
+       android:id="@+id/itvProductType"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_above="@+id/itvlSegment"
+       android:layout_alignParentRight="true"
+       android:layout_marginRight="20dp"
+       android:text="@string/product_name"
+       android:textSize="18sp" />
+
+   <TextView
+       android:id="@+id/itvSegment"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_above="@+id/itvlCountry"
+       android:layout_alignLeft="@+id/itvProductType"
+       android:text="@string/product_name"
+       android:textSize="18sp" />
+
+   <TextView
+       android:id="@+id/itvCountry"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignBaseline="@+id/itvlCountry"
+       android:layout_alignBottom="@+id/itvlCountry"
+       android:layout_alignLeft="@+id/itvSegment"
+       android:text="@string/product_name"
+       android:textSize="18sp" />
+
+   <ImageButton
+       android:id="@+id/iib3d"
+       android:contentDescription="@string/button3d"
+       android:layout_width="100dp"
+       android:layout_height="100dp"
+       android:layout_below="@+id/itvCountry"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="64dp"
+       android:src="@drawable/view3d" />
+   
+</RelativeLayout>

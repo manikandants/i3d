@@ -6,6 +6,7 @@
 
     <ImageView
         android:id="@+id/signature"
+        android:contentDescription="@string/schneider_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -59,6 +60,7 @@
 
      <ImageButton
          android:id="@+id/ibSearch"
+         android:contentDescription="@string/search_button"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignParentBottom="true"
@@ -68,6 +70,7 @@
 
      <ImageButton
          android:id="@+id/ibScan"
+         android:contentDescription="@string/scan_button"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignParentBottom="true"
