@@ -43,29 +43,31 @@ public final class R {
         public static final int zencelo=0x7f02000e;
     }
     public static final class id {
+        public static final int background=0x7f0a0008;
         public static final int ibScan=0x7f0a0006;
         public static final int ibSearch=0x7f0a0004;
         public static final int ieQuery=0x7f0a0007;
-        public static final int iib3d=0x7f0a0011;
-        public static final int iivProductImage=0x7f0a0009;
-        public static final int itvCountry=0x7f0a0010;
-        public static final int itvProductDetails=0x7f0a0008;
-        public static final int itvProductName=0x7f0a000a;
-        public static final int itvProductType=0x7f0a000e;
-        public static final int itvSegment=0x7f0a000f;
-        public static final int itvlCountry=0x7f0a000d;
-        public static final int itvlProductType=0x7f0a000b;
-        public static final int itvlSegment=0x7f0a000c;
+        public static final int iib3d=0x7f0a0012;
+        public static final int iivProductImage=0x7f0a000a;
+        public static final int itvCountry=0x7f0a0011;
+        public static final int itvProductDetails=0x7f0a0009;
+        public static final int itvProductName=0x7f0a000b;
+        public static final int itvProductType=0x7f0a000f;
+        public static final int itvSegment=0x7f0a0010;
+        public static final int itvlCountry=0x7f0a000e;
+        public static final int itvlProductType=0x7f0a000c;
+        public static final int itvlSegment=0x7f0a000d;
         public static final int latestUpdate=0x7f0a0005;
         public static final int lowerGreyLine=0x7f0a0003;
-        public static final int menu_settings=0x7f0a0012;
+        public static final int menu_settings=0x7f0a0013;
         public static final int signature=0x7f0a0000;
         public static final int upperGreenLine=0x7f0a0002;
         public static final int upperGreyLine=0x7f0a0001;
     }
     public static final class layout {
         public static final int activity_home=0x7f030000;
-        public static final int product_details=0x7f030001;
+        public static final int background=0x7f030001;
+        public static final int product_details=0x7f030002;
     }
     public static final class menu {
         public static final int main=0x7f090000;
