@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 public class Obj3DView extends RendererActivity {  
   private Object3dContainer faceObject3D;  
   private Camera mCamera;
@@ -23,6 +22,17 @@ public class Obj3DView extends RendererActivity {
 	View layout;
 	private float xRotation = 0;
 	private float yRotation = 0;
+	private Color4 colors[] = {
+			new Color4(0xFF, 0x00, 0x00, 0xFF),
+			new Color4(0x00, 0xFF, 0x00, 0xFF),
+			new Color4(0x00, 0x00, 0xFF, 0xFF),
+			new Color4(0xFF, 0xFF, 0x00, 0xFF),
+			new Color4(0xFF, 0x00, 0xFF, 0xFF),
+			new Color4(0x00, 0xFF, 0xFF, 0xFF),
+			new Color4(0x00, 0x00, 0x00, 0xFF),
+			new Color4(0xFF, 0xFF, 0xFF, 0xFF)
+	};
+	private int colorCount = 0;
   @Override 
   protected void glSurfaceViewConfig()
 {
@@ -87,6 +97,7 @@ public class Obj3DView extends RendererActivity {
   public void updateScene() {  
     faceObject3D.rotation().x = xRotation;
     faceObject3D.rotation().y = yRotation;
+    faceObject3D.defaultColor(colors[colorCount]);
     //faceObject3D.rotation().z += 1;
   }  
   public boolean dispatchTouchEvent(MotionEvent ev){
@@ -100,6 +111,12 @@ public class Obj3DView extends RendererActivity {
 		private static final int SWIPE_THRESHOLD_VELOCITY = 20;
 		private static final int ROTATION_SPEED_DIVISION = 3;
 
+		@Override
+		public boolean onSingleTapConfirmed(MotionEvent e) {
+			colorCount++;
+			colorCount%=colors.length;
+			return super.onSingleTapConfirmed(e);
+		}
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,	float velocityY) {
 			float dX = e2.getX()-e1.getX();
