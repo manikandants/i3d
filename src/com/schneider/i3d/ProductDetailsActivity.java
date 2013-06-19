@@ -49,7 +49,7 @@ public class ProductDetailsActivity extends Activity {
         	Resty resty = new Resty();
         	JSONResource jsonResource;
      		try {
-     			jsonResource = resty.json("http://192.168.0.204:3000/productlist/1");
+     			jsonResource = resty.json("http://192.168.1.89:3000/productlist/1");
      			product.productName = jsonResource.get("productName").toString();
      			product.productType = jsonResource.get("productType").toString();
      			product.country = jsonResource.get("country").toString();

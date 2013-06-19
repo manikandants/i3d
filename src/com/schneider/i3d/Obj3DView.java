@@ -33,6 +33,7 @@ public class Obj3DView extends RendererActivity {
 			new Color4(0xFF, 0xFF, 0xFF, 0xFF)
 	};
 	private int colorCount = 0;
+	private int bgColorCount = 0;
   @Override 
   protected void glSurfaceViewConfig()
 {
@@ -98,6 +99,14 @@ public class Obj3DView extends RendererActivity {
     faceObject3D.rotation().x = xRotation;
     faceObject3D.rotation().y = yRotation;
     faceObject3D.defaultColor(colors[colorCount]);
+    if(bgColorCount>0)
+    {
+    	scene.backgroundColor().setAll(colors[bgColorCount-1]);
+    }
+    else
+    {
+    	scene.backgroundColor().setAll(0x00000000);
+    }
     //faceObject3D.rotation().z += 1;
   }  
   public boolean dispatchTouchEvent(MotionEvent ev){
@@ -116,6 +125,12 @@ public class Obj3DView extends RendererActivity {
 			colorCount++;
 			colorCount%=colors.length;
 			return super.onSingleTapConfirmed(e);
+		}
+		@Override
+		public void onLongPress(MotionEvent e) {
+			bgColorCount++;
+			bgColorCount%=(colors.length+1);
+			super.onLongPress(e);
 		}
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,	float velocityY) {
