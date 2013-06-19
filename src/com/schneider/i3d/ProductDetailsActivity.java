@@ -28,32 +28,41 @@ public class ProductDetailsActivity extends Activity {
  			segment.setText(product.segment);
 		}
 	};
-
+	private String queryString;
+	protected Intent intent;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.product_details);
+		final Bundle bundle = this.getIntent().getExtras();
+        queryString = bundle.getString("com.schneider.message");
         Thread thread = new Thread(new Request());
         thread.start();
         ImageButton button = (ImageButton) findViewById(R.id.iib3d);
         button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-			      startActivity( new Intent(ProductDetailsActivity.this,Obj3DView.class)); 
+				intent = new Intent(ProductDetailsActivity.this,Obj3DView.class);
+				intent.putExtra("com.schneider.message", "obj/"+product.objName);
+			    startActivity(intent); 
 			}
 		});
 	}
 	class Request implements Runnable{
+		private static final String url = "http://192.168.1.199:8080/productlist/";
 		@Override
         public void run() {
         	Resty resty = new Resty();
         	JSONResource jsonResource;
      		try {
-     			jsonResource = resty.json("http://192.168.1.89:3000/productlist/1");
+     			String fullUrl = url + queryString;
+     			Log.e("TAG", fullUrl);
+     			jsonResource = resty.json(fullUrl);
      			product.productName = jsonResource.get("productName").toString();
      			product.productType = jsonResource.get("productType").toString();
      			product.country = jsonResource.get("country").toString();
      			product.segment = jsonResource.get("segment").toString();
+     			product.objName = jsonResource.get("objName").toString();
      			mHandler.post(mUpdateResults);
      		} catch (IOException e) {
      	        Log.e("data", "IOException");

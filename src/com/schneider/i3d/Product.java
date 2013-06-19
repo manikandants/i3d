@@ -5,4 +5,5 @@ public class Product {
 	String productType;
 	String country;
 	String segment;
+	String objName;
 }

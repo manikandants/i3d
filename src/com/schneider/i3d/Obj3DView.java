@@ -34,6 +34,7 @@ public class Obj3DView extends RendererActivity {
 	};
 	private int colorCount = 0;
 	private int bgColorCount = 0;
+	private static final String url = "http://192.168.1.199:8080/productlist/";
   @Override 
   protected void glSurfaceViewConfig()
 {
