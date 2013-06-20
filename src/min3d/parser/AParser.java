@@ -15,6 +15,7 @@ import min3d.core.Object3dContainer;
 import min3d.vos.Color4;
 import min3d.vos.Number3d;
 import min3d.vos.Uv;
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -40,6 +41,8 @@ public abstract class AParser implements IParser {
 	protected ArrayList<Number3d> normals;
 	protected boolean generateMipMap;
 	protected HashMap<String, Material> materialMap;
+	protected Context context;
+	protected String fileName;
 	
 	public AParser()
 	{
@@ -59,6 +62,14 @@ public abstract class AParser implements IParser {
 		this.resourceID = resourceID;
 		if (resourceID.indexOf(":") > -1)
 			this.packageID = resourceID.split(":")[0];
+		this.generateMipMap = generateMipMap;
+	}
+	
+	public AParser(Context context, String fileName, Boolean generateMipMap)
+	{
+		this();
+		this.context = context;
+		this.fileName = fileName;
 		this.generateMipMap = generateMipMap;
 	}
 	
@@ -110,6 +121,11 @@ public abstract class AParser implements IParser {
 	 * Override this in the concrete parser
 	 */
 	public void parse() {
+	}
+	/**
+	 * Override this in the concrete parser
+	 */
+	public void parseFromFile() {
 	}
 	
 

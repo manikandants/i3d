@@ -1,5 +1,6 @@
 package min3d.parser;
 
+import android.content.Context;
 import android.content.res.Resources;
 
 /**
@@ -36,5 +37,9 @@ public class Parser {
 		}
 		
 		return null;
+	}
+	public static IParser createParserFromFile(Context context, String fileName, Boolean generateMipMap)
+	{
+		return new ObjParser(context, fileName, generateMipMap);
 	}
 }

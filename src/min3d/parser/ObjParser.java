@@ -1,6 +1,10 @@
 package min3d.parser;
 
 import java.io.BufferedReader;
+import java.io.Console;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -14,8 +18,10 @@ import min3d.core.Object3dContainer;
 import min3d.vos.Color4;
 import min3d.vos.Number3d;
 import min3d.vos.Uv;
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.provider.OpenableColumns;
 import android.util.Log;
 
 /**
@@ -49,6 +55,10 @@ public class ObjParser extends AParser implements IParser {
 	 */
 	public ObjParser(Resources resources, String resourceID, boolean generateMipMap) {
 		super(resources, resourceID, generateMipMap);
+	}
+	
+	public ObjParser(Context context, String fileName, boolean generateMipMap){
+		super(context, fileName, generateMipMap);
 	}
 
 	@Override
@@ -129,6 +139,89 @@ public class ObjParser extends AParser implements IParser {
 
 		long endTime = Calendar.getInstance().getTimeInMillis();
 		Log.d(Min3d.TAG, "End time " + (endTime - startTime));
+	}
+	
+	@Override
+	public void parseFromFile() {
+		long startTime = Calendar.getInstance().getTimeInMillis();
+		try {
+			InputStream fileIn = context.openFileInput(fileName);
+			BufferedReader buffer = new BufferedReader(new InputStreamReader(fileIn));
+			String line;
+			co = new ParseObjectData(vertices, texCoords, normals);
+			parseObjects.add(co);
+
+			Log.d(Min3d.TAG, "Start parsing object " + resourceID);
+			Log.d(Min3d.TAG, "Start time " + startTime);
+
+			try {
+				while ((line = buffer.readLine()) != null) {
+					// remove duplicate whitespace
+					// line = line.replaceAll("\\s+", " ");
+					// String[] parts = line.split(" ");
+					StringTokenizer parts = new StringTokenizer(line, " ");
+					int numTokens = parts.countTokens();
+					if (numTokens == 0)
+						continue;
+					String type = parts.nextToken();
+
+					if (type.equals(VERTEX)) {
+						Number3d vertex = new Number3d();
+						vertex.x = Float.parseFloat(parts.nextToken());
+						vertex.y = Float.parseFloat(parts.nextToken());
+						vertex.z = Float.parseFloat(parts.nextToken());
+						vertices.add(vertex);
+					} else if (type.equals(FACE)) {
+						if (numTokens == 4) {
+							co.numFaces++;
+							co.faces.add(new ObjFace(line, currentMaterialKey, 3));
+						} else if (numTokens == 5) {
+							co.numFaces += 2;
+							co.faces.add(new ObjFace(line, currentMaterialKey, 4));
+						}
+					} else if (type.equals(TEXCOORD)) {
+						Uv texCoord = new Uv();
+						texCoord.u = Float.parseFloat(parts.nextToken());
+						texCoord.v = Float.parseFloat(parts.nextToken()) * -1f;
+						texCoords.add(texCoord);
+					} else if (type.equals(NORMAL)) {
+						Number3d normal = new Number3d();
+						normal.x = Float.parseFloat(parts.nextToken());
+						normal.y = Float.parseFloat(parts.nextToken());
+						normal.z = Float.parseFloat(parts.nextToken());
+						normals.add(normal);
+					} else if (type.equals(MATERIAL_LIB)) {
+						readMaterialLib(parts.nextToken());
+					} else if (type.equals(USE_MATERIAL)) {
+						currentMaterialKey = parts.nextToken();
+					} else if (type.equals(OBJECT)) {
+						String objName = parts.hasMoreTokens() ? parts.nextToken() : ""; 
+						if(firstObject)
+						{
+							Log.d(Min3d.TAG, "Create object " + objName);
+							co.name = objName;
+							firstObject = false;
+						}
+						else
+						{
+							Log.d(Min3d.TAG, "Create object " + objName);
+							co = new ParseObjectData(vertices, texCoords, normals);
+							co.name = objName;
+							parseObjects.add(co);
+						}
+					}
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			long endTime = Calendar.getInstance().getTimeInMillis();
+			Log.d(Min3d.TAG, "End time " + (endTime - startTime));
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
 	}
 
 	public Object3dContainer getParsedObject() {

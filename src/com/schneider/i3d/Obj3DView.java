@@ -1,10 +1,12 @@
 package com.schneider.i3d;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
@@ -30,7 +32,7 @@ public class Obj3DView extends RendererActivity {
 	final Handler mHandler = new Handler();
 	final Runnable mUpdateResults = new Runnable() {
 		public void run() {
-
+			ll.addView(_glSurfaceView);
 		}
 	};
 	private Object3dContainer faceObject3D;  
@@ -53,6 +55,7 @@ public class Obj3DView extends RendererActivity {
 	private int colorCount = 0;
 	private int bgColorCount = 0;
 	private String queryString;
+	FrameLayout ll;
 	@Override 
 	protected void glSurfaceViewConfig()
 	{
@@ -67,14 +70,13 @@ public class Obj3DView extends RendererActivity {
 		queryString = bundle.getString("com.schneider.message");
 		Thread thread = new Thread(new Request());
 		thread.start();
-		FrameLayout ll = (FrameLayout) this.findViewById(R.id.background);
 		// Create an instance of Camera
 		mCamera = getCameraInstance();
 
 		// Create our Preview view and set it as the content of our activity.
 		mPreview = new CameraPreview(this, mCamera);
+		ll = (FrameLayout) this.findViewById(R.id.background);
 		ll.addView(mPreview);
-		ll.addView(_glSurfaceView);
 		layout = (LinearLayout)findViewById(R.id.gestureView);
 		gesturedetector = new GestureDetector(getApplicationContext(),new MyGestureListener());
 		layout.setOnTouchListener(new OnTouchListener() {
@@ -105,8 +107,8 @@ public class Obj3DView extends RendererActivity {
 		Light myLight = new Light();
 		myLight.position.setZ(150);  
 		scene.lights().add(myLight);  
-		IParser myParser = Parser.createParser(Parser.Type.OBJ, getResources(), getResources().getResourceName(R.raw.face_obj),true);  
-		myParser.parse();  
+		IParser myParser = Parser.createParserFromFile(getApplicationContext(),queryString,true);  
+		myParser.parseFromFile();  
 		faceObject3D = myParser.getParsedObject();  
 		faceObject3D.position().x = faceObject3D.position().y = faceObject3D.position().z = 0;  
 		faceObject3D.scale().x = faceObject3D.scale().y = faceObject3D.scale().z = 0.05f;
@@ -193,15 +195,16 @@ public class Obj3DView extends RendererActivity {
 				URL objUrl = new URL(url+"obj/"+queryString);
 				URLConnection connection = objUrl.openConnection();
 	            connection.connect();
-	            File objFile = new File(getApplicationContext().getFilesDir().getPath().toString()+"\\"+queryString);
+	            int fileLength = connection.getContentLength();
+	            File objFile = new File(getApplicationContext().getFilesDir().getPath().toString()+"/"+queryString);
 	            if (!objFile.exists()){
 	               objFile.createNewFile();
 	            }
 	         // download the file
 	            InputStream input = new BufferedInputStream(objUrl.openStream());
-	            OutputStream output = new FileOutputStream(objFile.getAbsolutePath()+queryString);
+	            OutputStream output = new FileOutputStream(objFile.getAbsolutePath());
 
-	            byte data[] = new byte[1024];
+	            byte data[] = new byte[fileLength];
 	            int count;
 	            while ((count = input.read(data)) != -1) {
 	                output.write(data, 0, count);

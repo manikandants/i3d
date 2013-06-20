@@ -15,6 +15,10 @@ public interface IParser {
 	 */
 	public void parse();
 	/**
+	 * Start parsing the 3D object
+	 */
+	public void parseFromFile();
+	/**
 	 * Returns the parsed object
 	 * @return
 	 */
