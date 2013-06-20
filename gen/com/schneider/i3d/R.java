@@ -95,6 +95,7 @@ public final class R {
         public static final int searchHere=0x7f060003;
         public static final int search_button=0x7f060005;
         public static final int segment=0x7f06000b;
+        public static final int server_address=0x7f06000e;
         public static final int title_activity_home=0x7f060002;
     }
     public static final class style {
