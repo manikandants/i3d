@@ -35,12 +35,13 @@ public final class R {
         public static final int search=0x7f020006;
         public static final int sedna=0x7f020007;
         public static final int signature=0x7f020008;
-        public static final int tile_stone=0x7f020009;
-        public static final int ultimate=0x7f02000a;
-        public static final int unica=0x7f02000b;
-        public static final int view3d=0x7f02000c;
-        public static final int vivace=0x7f02000d;
-        public static final int zencelo=0x7f02000e;
+        public static final int spinner=0x7f020009;
+        public static final int tile_stone=0x7f02000a;
+        public static final int ultimate=0x7f02000b;
+        public static final int unica=0x7f02000c;
+        public static final int view3d=0x7f02000d;
+        public static final int vivace=0x7f02000e;
+        public static final int zencelo=0x7f02000f;
     }
     public static final class id {
         public static final int background=0x7f0a0008;

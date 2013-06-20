@@ -20,6 +20,6 @@
     <string name="segment">Segment</string>
     <string name="country">Country</string>
     <string name="button3d">3D Button</string>
-    <string name="server_address">http://192.168.1.199:8080/</string>
+    <string name="server_address">http://192.168.0.203:8080/</string>
 
 </resources>
