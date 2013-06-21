@@ -8,6 +8,10 @@
 package com.schneider.i3d;
 
 public final class R {
+    public static final class array {
+        public static final int product_color_array=0x7f080001;
+        public static final int product_parts_array=0x7f080000;
+    }
     public static final class attr {
     }
     public static final class color {
@@ -28,51 +32,60 @@ public final class R {
     public static final class drawable {
         public static final int anya=0x7f020000;
         public static final int asfora=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int merten=0x7f020003;
-        public static final int ovalis=0x7f020004;
-        public static final int scan=0x7f020005;
-        public static final int search=0x7f020006;
-        public static final int sedna=0x7f020007;
-        public static final int signature=0x7f020008;
-        public static final int spinner=0x7f020009;
-        public static final int tile_stone=0x7f02000a;
-        public static final int ultimate=0x7f02000b;
-        public static final int unica=0x7f02000c;
-        public static final int view3d=0x7f02000d;
-        public static final int vivace=0x7f02000e;
-        public static final int zencelo=0x7f02000f;
+        public static final int drawer_shadow=0x7f020002;
+        public static final int ic_drawer=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int merten=0x7f020005;
+        public static final int ovalis=0x7f020006;
+        public static final int scan=0x7f020007;
+        public static final int search=0x7f020008;
+        public static final int sedna=0x7f020009;
+        public static final int signature=0x7f02000a;
+        public static final int spinner=0x7f02000b;
+        public static final int tile_stone=0x7f02000c;
+        public static final int ultimate=0x7f02000d;
+        public static final int unica=0x7f02000e;
+        public static final int view3d=0x7f02000f;
+        public static final int vivace=0x7f020010;
+        public static final int zencelo=0x7f020011;
     }
     public static final class id {
-        public static final int background=0x7f0a0008;
-        public static final int gestureView=0x7f0a0009;
-        public static final int ibScan=0x7f0a0006;
-        public static final int ibSearch=0x7f0a0004;
-        public static final int ieQuery=0x7f0a0007;
-        public static final int iib3d=0x7f0a0013;
-        public static final int iivProductImage=0x7f0a000b;
-        public static final int itvCountry=0x7f0a0012;
-        public static final int itvProductDetails=0x7f0a000a;
-        public static final int itvProductName=0x7f0a000c;
-        public static final int itvProductType=0x7f0a0010;
-        public static final int itvSegment=0x7f0a0011;
-        public static final int itvlCountry=0x7f0a000f;
-        public static final int itvlProductType=0x7f0a000d;
-        public static final int itvlSegment=0x7f0a000e;
-        public static final int latestUpdate=0x7f0a0005;
-        public static final int lowerGreyLine=0x7f0a0003;
-        public static final int menu_settings=0x7f0a0014;
-        public static final int signature=0x7f0a0000;
-        public static final int upperGreenLine=0x7f0a0002;
-        public static final int upperGreyLine=0x7f0a0001;
+        public static final int background=0x7f0b0009;
+        public static final int drawer_layout=0x7f0b0008;
+        public static final int gestureView=0x7f0b000a;
+        public static final int ibScan=0x7f0b0006;
+        public static final int ibSearch=0x7f0b0004;
+        public static final int ieQuery=0x7f0b0007;
+        public static final int iib3d=0x7f0b0017;
+        public static final int iivProductImage=0x7f0b000f;
+        public static final int image=0x7f0b000d;
+        public static final int itvCountry=0x7f0b0016;
+        public static final int itvProductDetails=0x7f0b000e;
+        public static final int itvProductName=0x7f0b0010;
+        public static final int itvProductType=0x7f0b0014;
+        public static final int itvSegment=0x7f0b0015;
+        public static final int itvlCountry=0x7f0b0013;
+        public static final int itvlProductType=0x7f0b0011;
+        public static final int itvlSegment=0x7f0b0012;
+        public static final int latestUpdate=0x7f0b0005;
+        public static final int left_drawer=0x7f0b000b;
+        public static final int lowerGreyLine=0x7f0b0003;
+        public static final int menu_settings=0x7f0b0018;
+        public static final int right_drawer=0x7f0b000c;
+        public static final int signature=0x7f0b0000;
+        public static final int upperGreenLine=0x7f0b0002;
+        public static final int upperGreyLine=0x7f0b0001;
     }
     public static final class layout {
         public static final int activity_home=0x7f030000;
         public static final int background=0x7f030001;
-        public static final int product_details=0x7f030002;
+        public static final int drawer_list_item=0x7f030002;
+        public static final int drawer_list_item_r=0x7f030003;
+        public static final int fragment_planet=0x7f030004;
+        public static final int product_details=0x7f030005;
     }
     public static final class menu {
-        public static final int main=0x7f090000;
+        public static final int main=0x7f0a0000;
     }
     public static final class raw {
         public static final int cube_mtl=0x7f040000;
@@ -83,9 +96,13 @@ public final class R {
         public static final int switch_obj=0x7f040005;
     }
     public static final class string {
+        public static final int action_websearch=0x7f060011;
         public static final int app_name=0x7f060000;
+        public static final int app_not_available=0x7f060012;
         public static final int button3d=0x7f06000d;
         public static final int country=0x7f06000c;
+        public static final int drawer_close=0x7f060010;
+        public static final int drawer_open=0x7f06000f;
         public static final int menu_settings=0x7f060001;
         public static final int product_details=0x7f060009;
         public static final int product_image=0x7f060008;
@@ -121,10 +138,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f090001;
     }
 }

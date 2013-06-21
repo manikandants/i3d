@@ -20,6 +20,35 @@
     <string name="segment">Segment</string>
     <string name="country">Country</string>
     <string name="button3d">3D Button</string>
-    <string name="server_address">http://192.168.0.203:8080/</string>
+    <string name="server_address">http://192.168.1.70:8080/</string>
+    
+    <string-array name="product_parts_array">
+        <item>Frame</item>
+        <item>Rocker</item>
+        <item>Encloser</item>   
+        <item>Back Ground</item>     
+    </string-array>
+    
+    <string-array name="product_color_array">
+        <item>Tan</item>
+        <item>DimGrey</item>
+        <item>SlateGrey</item>
+        <item>Brown</item>
+        <item>DarkKhaki</item>
+        <item>Khaki</item>
+        <item>SaddleBrown</item>
+        <item>PaleGoldenrod</item>
+        <item>DarkSlateGrey</item>
+        <item>LemonChiffon</item>
+        <item>DarkOliveGreen</item>
+        <item>Lavender</item>
+        <item>Beige</item>
+        <item>Moccasin</item>        
+    </string-array>    
+    
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
 
 </resources>
