@@ -261,6 +261,21 @@ public class Obj3DView extends RendererActivity {
         // update selected item and title, then close the drawer
         mDrawerList.setItemChecked(position, true);
         setTitle(mPlanetTitles[position]);
+        if(position==4)
+        {
+        	Object1.position().x = Object1.position().y = Object1.position().z = 0; 
+        	Object2.position().x = Object2.position().y = Object2.position().z = 0; 
+        	Object1.scale().x = Object1.scale().y = Object1.scale().z = 0.03f;
+        	Object2.scale().x = Object2.scale().y = Object2.scale().z = 0.03f;
+        	
+        }
+        else if(position==5)
+        {
+        	Object1.position().x = -1; 
+        	Object2.position().x = 1; 
+        	Object1.scale().x = Object1.scale().y = Object1.scale().z = 0.02f;
+        	Object2.scale().x = Object2.scale().y = Object2.scale().z = 0.02f;
+        }
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 

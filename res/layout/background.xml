@@ -24,7 +24,7 @@
 
     <ListView
         android:id="@+id/left_drawer"
-        android:layout_width="240dp"
+        android:layout_width="140dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:choiceMode="singleChoice"
@@ -34,7 +34,7 @@
     
         <ListView
         android:id="@+id/right_drawer"
-        android:layout_width="240dp"
+        android:layout_width="140dp"
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:choiceMode="singleChoice"

@@ -20,13 +20,15 @@
     <string name="segment">Segment</string>
     <string name="country">Country</string>
     <string name="button3d">3D Button</string>
-    <string name="server_address">http://192.168.1.70:8080/</string>
+    <string name="server_address">http://192.168.1.5:8080/</string>
     
     <string-array name="product_parts_array">
         <item>Frame</item>
         <item>Rocker</item>
         <item>Encloser</item>   
-        <item>Back Ground</item>     
+        <item>Back Ground</item>
+        <item>Group</item>
+        <item>UnGroup</item>     
     </string-array>
     
     <string-array name="product_color_array">
