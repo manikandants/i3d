@@ -20,7 +20,7 @@
     <string name="segment">Segment</string>
     <string name="country">Country</string>
     <string name="button3d">3D Button</string>
-    <string name="server_address">http://192.168.1.5:8080/</string>
+    <string name="server_address">http://ec2-54-218-93-63.us-west-2.compute.amazonaws.com/</string>
     
     <string-array name="product_parts_array">
         <item>Frame</item>
